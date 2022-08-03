@@ -1,6 +1,10 @@
 import React from 'react'
 import './App.css'
-import { Calculation, Header, SidebarMenu } from './components'
+import {
+  Header,
+  SidebarMenu,
+  SimpleFormCalculation,
+} from './components'
 
 export const App = () => {
   const a = 1
@@ -9,7 +13,9 @@ export const App = () => {
     <div className="App">
       <Header />
       <SidebarMenu />
-      <Calculation />
+      <div>
+        <SimpleFormCalculation />
+      </div>
     </div>
   )
 }

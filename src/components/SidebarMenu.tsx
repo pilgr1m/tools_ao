@@ -17,6 +17,7 @@ export const SidebarMenu: FC<Props> = () => {
       }}
     >
       SidebarMenu...
+      menu
     </div>
   )
 }

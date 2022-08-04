@@ -1,20 +1,16 @@
 import React, { FC } from 'react'
 import { Controller } from 'react-hook-form'
-import { Checkbox, Container, FormControlLabel, IconButton, Tooltip } from '@mui/material'
+import { Checkbox, Container, FormControlLabel, Tooltip } from '@mui/material'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 
 // TODO fix any
 type Props = {
-  key: string,
   name: string,
-  value?: boolean
   control: any,
 }
 
 export const CheckboxForCalc: FC<Props> = ({
-  key,
   name,
-  value,
   control,
 }) => {
   const tooltipTittle = 'З Премом по ордеру на продаж -4,5%, без -7,5%'
@@ -22,24 +18,17 @@ export const CheckboxForCalc: FC<Props> = ({
   return (
     <>
       <Controller
-        key={key}
         name={name}
         control={control}
+        defaultValue
         render={({ field }) => (
-          <Container sx={{ ml: 1 }}>
+          <Container sx={{ ml: 1, fontSize: 10 }}>
             <FormControlLabel
               control={(
-                <>
-                  {/* <Tooltip title={tooltipTittle} placement="top"> */}
-                  {/*  <InfoOutlinedIcon color="primary" /> */}
-                  {/* </Tooltip> */}
-                  <Checkbox
-                    value={value}
-                    checked={field.value}
-                    onChange={(e) => field.onChange(e.target.checked)}
-                  />
-
-                </>
+                <Checkbox
+                  checked={field.value}
+                  onChange={(e) => field.onChange(e.target.checked)}
+                />
               )}
               label="Premium"
               labelPlacement="end"

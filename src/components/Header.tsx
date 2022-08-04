@@ -11,7 +11,7 @@ export const Header: FC<Props> = () => {
     <div
       style={{ height: 50, backgroundColor: 'darkgrey' }}
     >
-      Header...
+      <b>tools_ao</b>
     </div>
   )
 }

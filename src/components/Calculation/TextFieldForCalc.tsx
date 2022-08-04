@@ -1,18 +1,14 @@
 import React, { FC } from 'react'
 import { Controller } from 'react-hook-form'
-import { FormHelperText, TextField } from '@mui/material'
-import { uniqueId } from 'lodash'
+import { Container, FormHelperText, TextField } from '@mui/material'
 
 type Props = {
-  key: string,
   name: string,
   control: any,
   label: string,
-
 }
 
 export const TextFieldForCalc: FC<Props> = ({
-  key,
   name,
   control,
   label,
@@ -21,28 +17,33 @@ export const TextFieldForCalc: FC<Props> = ({
 
   return (
     <>
-      <Controller
-        key={key}
-        name={name}
-        control={control}
-        defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => (
-          <>
-            <FormHelperText sx={{ color: '#1976d2' }}>{label}</FormHelperText>
-            <TextField
-              type="number"
-              // label={label}
-              variant="filled"
-              value={value}
-              onChange={onChange}
-              error={!!error}
-              helperText={error ? error.message : null}
-            />
-          </>
+      <Container sx={{ height: 80 }}>
+        <Controller
+          name={name}
+          control={control}
+          defaultValue=""
+          render={({ field: { onChange, value }, fieldState: { error } }) => (
+            <>
+              <FormHelperText sx={{ color: '#1976d2', mt: 1.5 }}>{label}</FormHelperText>
+              <TextField
+                size="small"
+                type="number"
+                variant="outlined"
+                value={value}
+                onChange={onChange}
+                error={!!error}
+                helperText={error ? error.message : null}
+              />
+            </>
 
-        )}
-        rules={{ required: 'Required' }}
-      />
+          )}
+          rules={{
+            required: '* Невірне значення',
+            min: { value: 1, message: '* Мін.1' },
+            max: { value: 1_000_000_000, message: '* Макс. 1мрд' },
+          }}
+        />
+      </Container>
     </>
   )
 }

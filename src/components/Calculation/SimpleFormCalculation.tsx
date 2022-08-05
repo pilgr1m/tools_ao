@@ -5,7 +5,7 @@ import { countRunes, premium, prices } from '../../data'
 import { CheckboxForCalc } from './CheckboxForCalc'
 import { SelectForCalc } from './SelectForCalc'
 import { TextFieldForCalc } from './TextFieldForCalc'
-import { uniqueId } from 'lodash'
+import { isEmpty, uniqueId } from 'lodash'
 
 type Props = {
 
@@ -14,24 +14,16 @@ type stateType = {
   countRunes: number,
   premium: boolean,
   priceNormalItem: number,
-  priceOneRune: number,
-  priceUpgradeItem: number,
-}
-
-interface IFormInputs {
-  premium: boolean,
-  priceNormalItem: number,
   priceUpgradeItem: number,
   priceOneRune: number,
-  countRunes: number,
 }
 
 export const SimpleFormCalculation: FC<Props> = () => {
-  const { handleSubmit, control, reset } = useForm<IFormInputs>()
+  const { handleSubmit, control, reset, formState } = useForm<stateType>()
   const [state, setState] = useState<stateType | null>(null)
   const [profit, setProfit] = useState<number | null>(null)
 
-  const onSubmit = (data:IFormInputs) => {
+  const onSubmit = (data:stateType) => {
     console.log(data)
 
     const updatedData = {
@@ -65,7 +57,6 @@ export const SimpleFormCalculation: FC<Props> = () => {
   }
 
   useEffect(() => {
-    console.log('useEFFECT')
     generateProfit()
   }, [state])
 
@@ -80,8 +71,6 @@ export const SimpleFormCalculation: FC<Props> = () => {
       countRunes: undefined,
     })
   }
-
-  console.log('state: ', state)
 
   return (
     <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -121,7 +110,13 @@ export const SimpleFormCalculation: FC<Props> = () => {
 
         {/* footer */}
         <Container sx={{ mt: 2 }}>
-          <Button sx={{ mr: 1 }} type="submit" variant="contained" color="primary">
+          <Button
+            sx={{ mr: 1 }}
+            type="submit"
+            variant="contained"
+            color="primary"
+            disabled={state === null && !isEmpty(formState.errors)}
+          >
             Calculate
           </Button>
 
@@ -136,7 +131,7 @@ export const SimpleFormCalculation: FC<Props> = () => {
         </Container>
 
         <Typography sx={{ mt: 1 }}>
-          Your Profit:
+          <em>Your Profit: </em>
           <span style={{ color: `${(profit === null || profit < 0) ? 'red' : 'green'}`, marginLeft: 6 }}>
             {profit}
           </span>

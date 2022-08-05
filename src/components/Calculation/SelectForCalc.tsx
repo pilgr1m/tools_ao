@@ -23,31 +23,28 @@ export const SelectForCalc: FC<Props> = ({
         name={name}
         control={control}
         defaultValue=""
-        render={({ field: { onChange, value }, fieldState: { error } }) => {
-          console.log('error: ', error)
-
-          return (
-            <Container sx={{ mt: 1, minWidth: 223 }}>
-              <FormHelperText sx={{ color: '#1976DB' }}>{label} (<b>{value}</b>)</FormHelperText>
-              <Select
-                sx={{ width: 223 }}
-                size="small"
-                onChange={onChange}
-                error={!!error}
-              >
-                <MenuItem value=""><em>None</em></MenuItem>
-                {
+        render={({ field: { onChange, value }, fieldState: { error } }) => (
+          <Container sx={{ mt: 1, minWidth: 223 }}>
+            <FormHelperText sx={{ color: '#1976DB' }}>{label} (<b>{value}</b>)</FormHelperText>
+            <Select
+              sx={{ width: 223 }}
+              size="small"
+              value={value || ''}
+              onChange={onChange}
+              error={!!error}
+            >
+              <MenuItem value=""><em>None</em></MenuItem>
+              {
                   runesByItem.map((item) => (
                     <MenuItem key={item.label} value={item.value}>
                       {item.label}
                     </MenuItem>
                   ))
                 }
-              </Select>
-              <FormHelperText sx={{ ml: 1.5, color: '#D32F2F' }}>{error ? error.message : null}</FormHelperText>
-            </Container>
-          )
-        }}
+            </Select>
+            <FormHelperText sx={{ ml: 1.5, color: '#D32F2F' }}>{error ? error.message : null}</FormHelperText>
+          </Container>
+        )}
         rules={{ required: '* Виберіть значення' }}
       />
 

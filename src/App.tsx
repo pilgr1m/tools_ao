@@ -1,21 +1,23 @@
 import React from 'react'
 import './App.css'
 import {
-  Header,
   SidebarMenu,
   SimpleFormCalculation,
 } from './components'
+import { Container } from '@mui/material'
 
 export const App = () => {
   const a = 1
 
   return (
-    <div className="App">
-      <Header />
-      <SidebarMenu />
-      <div>
+    <>
+      <Container>
+        <SidebarMenu />
+      </Container>
+
+      <Container>
         <SimpleFormCalculation />
-      </div>
-    </div>
+      </Container>
+    </>
   )
 }

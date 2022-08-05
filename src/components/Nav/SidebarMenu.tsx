@@ -115,7 +115,7 @@ export const SidebarMenu = () => {
 
         <Divider />
         <List>
-          <MenuItemButton path="/calculation" text="Calculation" open={open} />
+          <MenuItemButton path="/calculation" text="CalculationPage" open={open} />
           <MenuItemButton path="/menu-item1" text="MenuItemButton" open={open} />
         </List>
         <Divider />

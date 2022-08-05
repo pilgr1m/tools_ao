@@ -24,8 +24,6 @@ export const SimpleFormCalculation: FC<Props> = () => {
   const [profit, setProfit] = useState<number | null>(null)
 
   const onSubmit = (data:stateType) => {
-    console.log(data)
-
     const updatedData = {
       ...data,
       priceNormalItem: Number(data.priceNormalItem),

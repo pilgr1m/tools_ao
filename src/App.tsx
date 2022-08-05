@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {
   SidebarMenu,
   SimpleFormCalculation,
@@ -11,13 +11,19 @@ export const App = () => {
 
   return (
     <>
-      <Container>
-        <SidebarMenu />
-      </Container>
+      <BrowserRouter>
 
-      <Container>
-        <SimpleFormCalculation />
-      </Container>
+        <Container>
+          <SidebarMenu />
+        </Container>
+
+        <Routes>
+          <Route path="/calculation" element={<SimpleFormCalculation />} />
+          {/* <Route path="/menu-item3" element={<SimpleFormCalculation />} /> */}
+          {/* <Route path="/component" element={<Component />} /> */}
+        </Routes>
+
+      </BrowserRouter>
     </>
   )
 }

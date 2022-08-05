@@ -1,25 +1,13 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import MuiDrawer from '@mui/material/Drawer'
-import {
-  Box,
-  Toolbar,
-  List,
-  CssBaseline,
-  Typography,
-  Divider,
-  IconButton,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  ListItemIcon,
-} from '@mui/material'
-import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles'
+import { Box, CssBaseline, Divider, IconButton, List, Toolbar, Typography } from '@mui/material'
+import { CSSObject, styled, Theme, useTheme } from '@mui/material/styles'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
-import InboxIcon from '@mui/icons-material/MoveToInbox'
-import MailIcon from '@mui/icons-material/Mail'
+import { MenuItemButton } from './MenuItemButton'
 
 const drawerWidth = 240
 
@@ -112,7 +100,9 @@ export const SidebarMenu = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+              Tools AO
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -122,69 +112,21 @@ export const SidebarMenu = () => {
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </DrawerHeader>
+
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <MenuItemButton path="/calculation" text="Calculation" open={open} />
+          <MenuItemButton path="/menu-item1" text="MenuItemButton" open={open} />
         </List>
         <Divider />
+
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <MenuItemButton path="/menu-item2" text="MenuItemButton" open={open} />
+          <MenuItemButton path="/menu-item3" text="MenuItemButton" open={open} />
         </List>
+
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdi
-        </Typography>
-        <Typography paragraph>
-          Content...
-        </Typography>
-      </Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }} />
     </Box>
   )
 }

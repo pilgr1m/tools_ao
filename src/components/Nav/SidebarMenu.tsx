@@ -1,8 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import MuiDrawer from '@mui/material/Drawer'
-import { Box, CssBaseline, Divider, IconButton, List, Toolbar, Typography } from '@mui/material'
+import {
+  Box,
+  CssBaseline,
+  Divider,
+  IconButton,
+  List,
+  Toolbar,
+  Typography,
+  Container,
+} from '@mui/material'
 import { CSSObject, styled, Theme, useTheme } from '@mui/material/styles'
 import MenuIcon from '@mui/icons-material/Menu'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
@@ -99,10 +108,21 @@ export const SidebarMenu = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
-              Tools AO
-            </Link>
+          <Container className="flex" sx={{ display: 'flex' }}>
+            <Typography variant="h5" noWrap component="div">
+              <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+                <span>Tools AO</span>
+              </Link>
+            </Typography>
+            <img
+              src="https://render.albiononline.com/v1/item/T4_OFF_SHIELD@1.png"
+              alt="icon"
+              className="w-10"
+            />
+          </Container>
+
+          <Typography>
+            <span className="text-xs leading-2">Status server: {}</span>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -116,7 +136,7 @@ export const SidebarMenu = () => {
         <Divider />
         <List>
           <MenuItemButton path="/calculation" text="CalculationPage" open={open} />
-          <MenuItemButton path="/menu-item1" text="MenuItemButton" open={open} />
+          <MenuItemButton path="/items" text="ItemsPage" open={open} />
         </List>
         <Divider />
 

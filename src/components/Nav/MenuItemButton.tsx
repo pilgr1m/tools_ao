@@ -9,6 +9,7 @@ import {
 } from '@mui/material'
 import HelpIcon from '@mui/icons-material/Help'
 import CalculateIcon from '@mui/icons-material/Calculate'
+import CheckroomIcon from '@mui/icons-material/Checkroom'
 
 type Props = {
   text: string,
@@ -23,6 +24,19 @@ export const MenuItemButton: FC<Props> = ({
 }) => {
   const location = useLocation()
   const color = path === location.pathname ? 'lightgrey' : ''
+
+  const setIcon = (nameIcon: string) => {
+    switch (nameIcon) {
+      case 'CalculateIcon':
+        return <CalculateIcon />
+      case 'ItemsPage':
+        return <CheckroomIcon />
+      case '':
+        return <HelpIcon />
+      default:
+        return <HelpIcon />
+    }
+  }
 
   return (
     <ListItem
@@ -47,7 +61,7 @@ export const MenuItemButton: FC<Props> = ({
               justifyContent: 'center',
             }}
           >
-            {text === 'MenuItemButton' ? <HelpIcon /> : <CalculateIcon />}
+            { setIcon(text) }
           </ListItemIcon>
           <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
         </ListItemButton>

@@ -1,3 +1,4 @@
 export * from './CalculationPage'
-export * from './HomePage'
 export * from './ExamplePage'
+export * from './HomePage'
+export * from './ItemsPage'

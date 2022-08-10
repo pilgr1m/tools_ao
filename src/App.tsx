@@ -2,7 +2,12 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { SidebarMenu } from './components'
 import { Container } from '@mui/material'
-import { CalculationPage, ExamplePage, HomePage } from './page'
+import {
+  CalculationPage,
+  ExamplePage,
+  HomePage,
+  ItemsPage,
+} from './page'
 
 export const App = () => {
   const a = 1
@@ -14,10 +19,10 @@ export const App = () => {
           <SidebarMenu />
         </Container>
 
-        <Container sx={{ mt: 4, ml: 30 }}>
+        <Container className="mt-4">
           <Routes>
             <Route path="/calculation" element={<CalculationPage />} />
-            <Route path="/menu-item1" element={<ExamplePage />} />
+            <Route path="/items" element={<ItemsPage />} />
             <Route path="/menu-item2" element={<ExamplePage />} />
             <Route path="/menu-item3" element={<ExamplePage />} />
             <Route path="/" element={<HomePage />} />

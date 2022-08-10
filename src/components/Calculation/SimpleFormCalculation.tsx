@@ -71,7 +71,10 @@ export const SimpleFormCalculation: FC<Props> = () => {
   }
 
   return (
-    <div style={{ marginTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div
+      className="mt-2 flex justify-center"
+      // style={{ marginTop: 20, display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+    >
       <form
         onSubmit={handleSubmit(onSubmit)}
         style={{ display: 'flex', flexDirection: 'column' }}

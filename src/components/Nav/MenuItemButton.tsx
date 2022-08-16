@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink, useLocation } from 'react-router-dom'
-
 import {
   ListItem,
   ListItemButton,
@@ -22,12 +22,13 @@ export const MenuItemButton: FC<Props> = ({
   open,
   path,
 }) => {
+  const dispatch = useDispatch()
   const location = useLocation()
   const color = path === location.pathname ? 'lightgrey' : ''
 
   const setIcon = (nameIcon: string) => {
     switch (nameIcon) {
-      case 'CalculateIcon':
+      case 'CalculationPage':
         return <CalculateIcon />
       case 'ItemsPage':
         return <CheckroomIcon />

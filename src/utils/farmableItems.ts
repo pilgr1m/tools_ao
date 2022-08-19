@@ -6,14 +6,14 @@ const itemsFiltered = (items: itemsType[], type: string) =>
 export const generateItemsByType = (items: itemsType[]) => {
   if (items.length === 0) return null
 
-  console.log('items: ', items)
+  // console.log('items: ', items)
   // 'Seed'
   const seedItems = itemsFiltered(items, 'SEED')
   const animalItems = itemsFiltered(items, 'BABY')
   const fishingItems = itemsFiltered(items, 'FISH')
   const potionItems = itemsFiltered(items, 'POTION')
 
-  console.log('seedItems: ', seedItems)
+  // console.log('seedItems: ', seedItems)
   const filteredItems = [
     { name: 'Seeds', items: [...seedItems] },
     { name: 'Animals', items: [...animalItems] },
@@ -21,7 +21,7 @@ export const generateItemsByType = (items: itemsType[]) => {
     { name: 'Potions', items: [...potionItems] },
   ]
 
-  console.log('filteredITEms: ', filteredItems)
+  // console.log('filteredITEms: ', filteredItems)
 
   return filteredItems
 }

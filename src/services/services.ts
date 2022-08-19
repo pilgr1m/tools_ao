@@ -15,8 +15,8 @@ export const getFarmableItems = async () => {
     // need response.data = {data}
     first100Items = response.data.filter((el: itemsType, idx:number) => idx < 100)
 
-    console.log('%c response.data: ', 'color: yellow', response.data)
-    console.log('%c first100Items: ', 'color: yellow', first100Items)
+    // console.log('%c response.data: ', 'color: yellow', response.data)
+    // console.log('%c first100Items: ', 'color: yellow', first100Items)
   } catch (error) {
     console.error(error)
   }

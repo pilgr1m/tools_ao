@@ -19,7 +19,6 @@ type PropsType = {
 }
 
 export const RowTable: FC<PropsType> = ({ row }) => {
-  console.log('row: ', row)
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -62,44 +61,40 @@ export const RowTable: FC<PropsType> = ({ row }) => {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.items.map((item:any) => {
-                    console.log('item: ', item)
-
-                    return (
-                      <TableRow key={uniqueId()}>
-                        <TableCell component="th" scope="row">
-                          {item.item_id}
-                          <Avatar
-                            alt="icon_items"
-                            src={createPathIcon(item.item_id)}
-                            sx={{ width: 56, height: 56 }}
-                          />
-                        </TableCell>
-                        <TableCell component="th" scope="row">{item.city}</TableCell>
-                        <TableCell>{item.quality}</TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700 }}>
-                          {item.buy_price_max}
-                          <br />
-                          <span className="text-gray-400 font-normal text-xs">{generateDate(item.buy_price_max_date)}</span>
-                        </TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700 }}>
-                          {item.buy_price_min}
-                          <br />
-                          <span className="text-gray-400 font-normal text-xs">{generateDate(item.buy_price_min_date)}</span>
-                        </TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700 }}>
-                          {item.sell_price_max}
-                          <br />
-                          <span className="text-gray-400 font-normal text-xs">{generateDate(item.sell_price_max_date)}</span>
-                        </TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700 }}>
-                          {item.sell_price_min}
-                          <br />
-                          <span className="text-gray-400 font-normal text-xs">{generateDate(item.sell_price_min_date)}</span>
-                        </TableCell>
-                      </TableRow>
-                    )
-                  })}
+                  {row.items.map((item:any) => (
+                    <TableRow key={uniqueId()}>
+                      <TableCell component="th" scope="row">
+                        {item.item_id}
+                        <Avatar
+                          alt="icon_items"
+                          src={createPathIcon(item.item_id)}
+                          sx={{ width: 56, height: 56 }}
+                        />
+                      </TableCell>
+                      <TableCell component="th" scope="row">{item.city}</TableCell>
+                      <TableCell>{item.quality}</TableCell>
+                      <TableCell align="right" sx={{ fontWeight: 700 }}>
+                        {item.buy_price_max}
+                        <br />
+                        <span className="text-gray-400 font-normal text-xs">{generateDate(item.buy_price_max_date)}</span>
+                      </TableCell>
+                      <TableCell align="right" sx={{ fontWeight: 700 }}>
+                        {item.buy_price_min}
+                        <br />
+                        <span className="text-gray-400 font-normal text-xs">{generateDate(item.buy_price_min_date)}</span>
+                      </TableCell>
+                      <TableCell align="right" sx={{ fontWeight: 700 }}>
+                        {item.sell_price_max}
+                        <br />
+                        <span className="text-gray-400 font-normal text-xs">{generateDate(item.sell_price_max_date)}</span>
+                      </TableCell>
+                      <TableCell align="right" sx={{ fontWeight: 700 }}>
+                        {item.sell_price_min}
+                        <br />
+                        <span className="text-gray-400 font-normal text-xs">{generateDate(item.sell_price_min_date)}</span>
+                      </TableCell>
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </Box>

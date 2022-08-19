@@ -1,1 +1,3 @@
-export * from './datasForCalculation'
+export * from './calculation'
+export * from './pagesOfDatabase'
+export * from './routes'

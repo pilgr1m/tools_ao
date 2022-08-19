@@ -12,7 +12,6 @@ export const Items: FC<Props> = ({
   requestFarmableItems,
 }) => {
   useEffect(() => {
-    console.log('useEff []')
     requestFarmableItems()
   }, [])
   const a = 1

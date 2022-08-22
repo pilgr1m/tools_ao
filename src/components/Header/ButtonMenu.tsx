@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
@@ -7,10 +7,14 @@ import { NavLink } from 'react-router-dom'
 import { pageType } from '../../types'
 
 type Props = {
- page: pageType
+  page: pageType,
+  screenSize: any
 }
 
-export const ButtonMenu: FC<Props> = ({ page }) => {
+export const ButtonMenu: FC<Props> = ({
+  page,
+  screenSize,
+}) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -20,7 +24,9 @@ export const ButtonMenu: FC<Props> = ({ page }) => {
     setAnchorEl(null)
   }
 
-  console.log('page: ', page)
+  useEffect(() => {
+    screenSize < 900 && setAnchorEl(null)
+  }, [screenSize])
 
   return (
     <>

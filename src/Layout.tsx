@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box'
-import { Header } from './components/Header'
+import { Header } from './components'
 // import { ERROR, FORGOT_PASSWORD_PATH, LOGIN_PATH, NEW_PASSWORD_PATH, RESET_PASSWORD_PATH } from 'consts'
 
 // const pathsForPagesWithshowToolbarsoutBars = [

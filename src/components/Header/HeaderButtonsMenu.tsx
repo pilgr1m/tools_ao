@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { HeaderMenuMobileView } from './HeaderMenuMobileView'
 import { HeaderMenuDesktopView } from './HeaderMenuDesktopView'
 import { pages } from '../../data'
@@ -8,7 +8,7 @@ type Props = {
 }
 
 export const HeaderButtonsMenu: FC<Props> = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
@@ -17,6 +17,18 @@ export const HeaderButtonsMenu: FC<Props> = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null)
   }
+
+  const [screenSize, setScreenSize] = useState<null | number>(null)
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth)
+
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <>
@@ -31,7 +43,7 @@ export const HeaderButtonsMenu: FC<Props> = () => {
       {/* desktop view menu */}
       <HeaderMenuDesktopView
         pages={pages}
-        handleCloseNavMenu={handleCloseNavMenu}
+        screenSize={screenSize}
       />
     </>
   )

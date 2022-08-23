@@ -44,7 +44,7 @@ export const subPagesItems = [
       'heretic', 'keeper', 'morgana', 'repair kit', 'table', 'unique'],
   },
   {
-    name: 'gathering_gear',
+    name: 'gathering gear',
     subPages: [
       'harvester garb', 'harvester backpack', 'harvester cap', 'harvester workboots',
       'fisherman garb', 'fisherman backpack', 'fisherman cap', 'fisherman workboots',

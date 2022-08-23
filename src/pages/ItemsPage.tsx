@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { Items } from '../components'
+import { Items, ItemsLayout } from '../components'
 import { getFarmableItems } from '../services'
 import { itemsType } from '../types'
 import { useDispatch } from 'react-redux'
@@ -29,9 +29,10 @@ export const ItemsPage: FC<Props> = () => {
   }, [data, dispatch])
 
   return (
-    <Items
-      requestFarmableItems={requestFarmableItems}
-      itemsData={memoizedData}
-    />
+    // <Items
+    //   requestFarmableItems={requestFarmableItems}
+    //   itemsData={memoizedData}
+    // />
+    <ItemsLayout />
   )
 }

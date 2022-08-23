@@ -1,4 +1,4 @@
 export type pageType = {
   name: string,
-  subPages?: string[]
+  subPagesDatabase?: string[]
 }

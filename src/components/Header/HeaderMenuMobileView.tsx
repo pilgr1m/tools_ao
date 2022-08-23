@@ -38,7 +38,7 @@ const NestedList: FC<PropsType> = ({ page, handleCloseNavMenu }) => {
 
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" sx={{ p: 0 }}>
-            {page.subPages && page.subPages.map((sp: string) => (
+            {page.subPagesDatabase && page.subPagesDatabase.map((sp: string) => (
               <MenuItem key={uniqueId()}>
                 <NavLink
                   onClick={handleCloseNavMenu}
@@ -102,7 +102,7 @@ export const HeaderMenuMobileView: FC<Props> = ({
           {pages.map((page) => (
             <div key={uniqueId()}>
               {
-                  page.subPages
+                  page.subPagesDatabase
                     ? (
                       <MenuItem key={page.name}>
                         <NestedList

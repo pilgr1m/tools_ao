@@ -1,3 +1,3 @@
 export * from './calculation'
-export * from './pagesOfDatabase'
+export * from './pages'
 export * from './routes'

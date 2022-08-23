@@ -1,3 +1,3 @@
 export * from './Calculation'
 export * from './Header'
-export * from './Items'
+export * from './databasePages'

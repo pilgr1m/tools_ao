@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { itemsType } from '../types'
-import { urlCommonFarmableItems } from '../constants'
+import { urlCommonFarmableItems } from '../consts'
 
 const instance = axios.create(
   { baseURL: 'https://www.albion-online-data.com/api/v2' },

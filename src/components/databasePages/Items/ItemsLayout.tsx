@@ -15,7 +15,6 @@ export const ItemsLayout: FC<PropsType> = () => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={3} columns={24}>
         <Grid xs={3} sx={{ border: 'solid 1px green' }}>
-          xs=3  menu
           <MenuPageItems />
         </Grid>
         <Grid xs={20} sx={{ border: 'solid 1px red', ml: 2 }}>

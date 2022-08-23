@@ -143,7 +143,7 @@ export const HeaderMenuMobileView: FC<Props> = ({
           textDecoration: 'none',
         }}
       >
-        Tools AO
+        App AO
       </Typography>
     </>
   )

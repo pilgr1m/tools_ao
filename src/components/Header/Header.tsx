@@ -29,7 +29,7 @@ export const Header: FC<Props> = () => (
             textDecoration: 'none',
           }}
         >
-          Tools AO
+          App AO
         </Typography>
 
         {/* button menu */}

@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { Items, ItemsLayout } from '../components'
+import { ItemsLayout } from '../components'
 import { getFarmableItems } from '../services'
 import { itemsType } from '../types'
 import { useDispatch } from 'react-redux'

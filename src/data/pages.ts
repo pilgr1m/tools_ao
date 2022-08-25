@@ -1,4 +1,4 @@
-import { pageType } from '../types'
+import { pageType, subPagesItemsType } from '../types'
 
 const subPagesDatabase = [
   'items',
@@ -18,7 +18,7 @@ export const pages: pageType[] = [
   { name: 'example_page' },
 ]
 
-export const subPagesItems = [
+export const subPagesItems: subPagesItemsType[] = [
   { name: 'accessories', subPages: ['bag', 'cape'] },
   {
     name: 'armor',

@@ -8,6 +8,8 @@ export const ExamplePage: FC<Props> = () => {
   const a = 1
 
   return (
-    <> ExamplePage... </>
+    <>
+      ExamplePage...
+    </>
   )
 }

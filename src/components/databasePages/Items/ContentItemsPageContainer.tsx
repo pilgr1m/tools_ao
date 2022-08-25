@@ -165,7 +165,7 @@ const Content = () => {
   )
 }
 
-export const ContentItemsContainer: FC<PropsType> = () => {
+export const ContentItemsPageContainer: FC<PropsType> = () => {
   const a = 1
 
   return (

@@ -23,7 +23,7 @@ export const subPagesItems: subPagesItemsType[] = [
   {
     name: 'armor',
     subPages: ['cloth armor', 'cloth helmet', 'cloth shoes', 'leather armor',
-      'leather helmet', 'cloth shoes', 'plate armor', 'plate helmet', 'plate shoes',
+      'leather helmet', 'leather shoes', 'plate armor', 'plate helmet', 'plate shoes',
       'unique armor', 'unique helmet', 'unique shoes'],
   },
   { name: 'artifact', subPages: ['armor', 'magic', 'melee', 'offhand', 'other', 'ranged'] },

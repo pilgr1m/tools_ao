@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { ItemsLayout } from '../components'
-import { getFarmableItems } from '../services'
+// import { getFarmableItems } from '../services'
 import { itemsType } from '../types'
 import { useDispatch } from 'react-redux'
 import { setFarmableItems } from '../features'
@@ -16,9 +16,9 @@ export const ItemsPage: FC<Props> = () => {
 
   const requestFarmableItems = useCallback(async () => {
     try {
-      const items: itemsType[] = await getFarmableItems()
+      // const items: itemsType[] = await getFarmableItems()
 
-      setData(items)
+      // setData(items)
     } catch (e: any) {
       console.log('error: ', e?.message)
     }

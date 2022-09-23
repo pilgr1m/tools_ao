@@ -66,7 +66,8 @@ export const ButtonMenu: FC<Props> = ({
                 className="hover:text-orange-600"
               >
                 { page.subPagesDatabase.map((sp: string) => {
-                  console.log('path', `${page.name}/${sp}`)
+                  const a = 1
+                  // console.log('path', `${page.name}/${sp}`)
 
                   return (
                     <MenuItem

@@ -1,3 +1,5 @@
 export * from './Items'
 export * from './RowTable'
 export * from './TableItems'
+export * from './ItemCard'
+export * from './PriceByCity'

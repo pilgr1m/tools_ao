@@ -1,25 +1,33 @@
+import { useCallback } from 'react'
 import axios from 'axios'
-import { itemsType } from '../types'
-import { urlCommonFarmableItems } from '../consts'
 
-const instance = axios.create(
-  { baseURL: 'https://www.albion-online-data.com/api/v2' },
-)
+const baseURL = 'https://www.albion-online-data.com/api/v2'
 
-export const getFarmableItems = async () => {
-  let first100Items
+const axiosOptions = {
+  baseURL,
+  timeout: 1000,
+  headers: { contentType: 'application/json' },
+}
 
-  try {
-    const response = await instance.get(urlCommonFarmableItems)
+const instance = axios.create(axiosOptions)
 
-    // need response.data = {data}
-    first100Items = response.data.filter((el: itemsType, idx:number) => idx < 100)
+// TODO added loader
+export const useHttp = () => {
+  // const request = useCallback(async (url: string, isLoader?: boolean) => {
+  const request = async (url: string, isLoader?: boolean) => {
+    try {
+      // loader on
+      const response = await instance.get(url)
 
-    // console.log('%c response.data: ', 'color: yellow', response.data)
-    // console.log('%c first100Items: ', 'color: yellow', first100Items)
-  } catch (error) {
-    console.error(error)
+      // if status OK(200) loader off
+      console.log(response)
+      console.log(response.data)
+      // setState(response.data)
+    } catch (error) {
+      // if is error - loader on
+      console.error(error)
+    }
   }
 
-  return first100Items
+  return { request }
 }

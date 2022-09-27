@@ -21,7 +21,7 @@ export const ItemCard: FC<PropsType> = ({ items }) => {
     T8: 'Elder',
   }
 
-  const tier = items[0].item_id.slice(0, 2)
+  const tier = items[0]?.item_id.slice(0, 2)
 
   return (
     <Box sx={{
@@ -36,7 +36,7 @@ export const ItemCard: FC<PropsType> = ({ items }) => {
           <CardMedia
             component="img"
             sx={{ width: 64 }}
-            image={`https://render.albiononline.com/v1/item/${items[0].item_id}.png`}
+            image={`https://render.albiononline.com/v1/item/${items[0]?.item_id}.png`}
             alt="item icon"
           />
         </Grid>
@@ -52,6 +52,7 @@ export const ItemCard: FC<PropsType> = ({ items }) => {
               <PriceByCity
                 priceSellMin={item.sell_price_min}
                 city={item.city}
+                quality={item.quality}
                 key={uniqueId()}
               />
             ))

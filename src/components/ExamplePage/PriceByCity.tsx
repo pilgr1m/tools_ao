@@ -6,11 +6,13 @@ import Grid from '@mui/material/Grid'
 type PropsType = {
   priceSellMin: number
   city: string
+  quality: number
 }
 
 export const PriceByCity: FC<PropsType> = ({
   priceSellMin,
   city,
+  quality,
 }) => {
   const [colorBg, setColorBg] = useState('')
   const colorOfCity = {
@@ -38,9 +40,11 @@ export const PriceByCity: FC<PropsType> = ({
 
   if (priceWithSpaces === '0') return null
 
+  const title = `${city}, quality:${quality}`
+
   return (
     <>
-      <Tooltip title={city} arrow>
+      <Tooltip title={title} arrow>
         <Grid
           xs="auto"
           item

@@ -3,7 +3,6 @@ import { ItemsLayout } from '../components'
 // import { getFarmableItems } from '../services'
 import { itemsType } from '../types'
 import { useDispatch } from 'react-redux'
-import { setFarmableItems } from '../features'
 
 type Props = {
 
@@ -25,7 +24,8 @@ export const ItemsPage: FC<Props> = () => {
   }, [])
 
   useEffect(() => {
-    dispatch(setFarmableItems(data))
+    // dispatch(setFarmableItems(data))
+    console.log('useEffect')
   }, [data, dispatch])
 
   return (

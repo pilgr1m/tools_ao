@@ -2,7 +2,7 @@ import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { ItemsLayout } from '../components'
 // import { getFarmableItems } from '../services'
 import { itemsType } from '../types'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 type Props = {
 
@@ -11,28 +11,14 @@ type Props = {
 export const ItemsPage: FC<Props> = () => {
   const dispatch = useDispatch()
   const [data, setData] = useState<itemsType[] | []>([])
-  const memoizedData = useMemo(() => data, [data])
 
-  const requestFarmableItems = useCallback(async () => {
-    try {
-      // const items: itemsType[] = await getFarmableItems()
+  const { isLoading, isError, items } = useSelector((state:any) => {
+    console.log('state: ', state)
 
-      // setData(items)
-    } catch (e: any) {
-      console.log('error: ', e?.message)
-    }
-  }, [])
-
-  useEffect(() => {
-    // dispatch(setFarmableItems(data))
-    console.log('useEffect')
-  }, [data, dispatch])
+    return state.items
+  })
 
   return (
-    // <Items
-    //   requestFarmableItems={requestFarmableItems}
-    //   itemsData={memoizedData}
-    // />
     <ItemsLayout />
   )
 }

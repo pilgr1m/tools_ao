@@ -1,8 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { ItemCard } from '../components'
-import { cloneDeep, uniqueId } from 'lodash'
-import { Button, Link } from '@mui/material'
-import { sortedItemsByTierAndGrade } from '../utils'
+import { uniqueId } from 'lodash'
+import { Link } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBags } from '../features'
 
@@ -40,22 +39,12 @@ export const ExamplePage: FC<Props> = () => {
   if (loading) return <h1>LOADING...</h1>
   if (error) return <h1>something went wrong</h1>
 
-  const newData = data && sortedItemsByTierAndGrade(data)
-
-  console.log('newData: ', newData)
-
   return (
     <>
       <span>Prices are provided by the </span>
       <Link href="https://www.albion-online-data.com/" underline="hover">
         Albion Online Data Project
       </Link>
-
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      {/* <Button variant="outlined" onClick={() => dispatch(getBags())}> */}
-      {/*  Load Bags */}
-      {/* </Button> */}
 
       <div style={{
         display: 'flex',
@@ -66,7 +55,7 @@ export const ExamplePage: FC<Props> = () => {
       // alignContent: 'center',
       }}
       >
-        {newData && newData.map((itemsByTier: any) =>
+        {data && data.map((itemsByTier: any) =>
           <ItemCard key={uniqueId('key_')} items={itemsByTier} />)}
       </div>
     </>

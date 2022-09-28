@@ -26,7 +26,9 @@ export const ItemCard: FC<PropsType> = ({ items }) => {
   return (
     <Box sx={{
       width: 250,
-      border: 'solid 1px red',
+      border: 'solid 1px rgba(0,155,155,0.1)',
+      borderRadius: '8px',
+      backgroundColor: 'rgba(176,176,176,0.1)',
       boxSizing: 'border-box',
       marginBottom: '10px',
     }}

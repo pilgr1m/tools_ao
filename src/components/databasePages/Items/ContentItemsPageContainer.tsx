@@ -5,6 +5,7 @@ import { uniqueId } from 'lodash'
 import { Link } from '@mui/material'
 import { experimentalStyled as styled } from '@mui/material/styles'
 import Paper from '@mui/material/Paper'
+import { ExamplePage } from '../../../pages'
 
 type PropsType = {
 
@@ -187,10 +188,11 @@ export const ContentItemsPageContainer: FC<PropsType> = () => {
           <Quality />
 
         </Grid>
-        <Grid xs={16} sx={{ border: 'solid 1px red', ml: 2, mt: 2 }}>
-          CONTENT with cards
-          <Content />
-        </Grid>
+        <ExamplePage />
+        {/* <Grid xs={16} sx={{ border: 'solid 1px yellow', ml: 2, mt: 2 }}> */}
+        {/*  CONTENT with cards */}
+        {/*  <Content /> */}
+        {/* </Grid> */}
       </Grid>
     </Box>
   )

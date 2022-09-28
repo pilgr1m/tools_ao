@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance } from '../../services'
 import { bagsURL } from '../../consts'
+import { sortedItemsByTierAndGrade } from '../../utils'
 
 const initialState = {
   items: [],
@@ -16,9 +17,9 @@ export const getBags = createAsyncThunk(
 
     const data = await response.data
 
-    return data
-    // eslint-disable-next-line @typescript-eslint/no-use-before-define
-    // dispatch(setBags(response.data))
+    const sortedData = sortedItemsByTierAndGrade(data)
+
+    return sortedData
   },
 )
 

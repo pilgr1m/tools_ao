@@ -3,7 +3,12 @@ export type pageType = {
   subPagesDatabase?: string[]
 }
 
+export type subPagesType = {
+  label: string,
+  url: string
+}
+
 export type subPagesItemsType = {
   name: string,
-  subPages?: string[]
+  subPages: subPagesType[]
 }

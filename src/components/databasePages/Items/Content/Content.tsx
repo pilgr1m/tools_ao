@@ -16,12 +16,12 @@ export const Content: FC<Props> = ({ url }) => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
-  const urlTest = url || itemsURL
+  const currUrl = url || itemsURL
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    dispatch(getBags(urlTest))
+    dispatch(getBags(currUrl))
   }, [])
 
   const { isLoading, isError, items } = useSelector((state:any) => {
@@ -37,7 +37,7 @@ export const Content: FC<Props> = ({ url }) => {
   }, [isLoading, isError, items])
 
   if (loading) return <h1>LOADING...</h1>
-  if (error) return <h1>something went wrong</h1>
+  if (error) return <h1> Something went wrong..., please try reload the page</h1>
 
   return (
     <div style={{

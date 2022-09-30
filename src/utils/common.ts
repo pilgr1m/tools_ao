@@ -16,6 +16,14 @@ export const generateCapitalizeLabel = (label: string) => {
   return labelString
 }
 
+export const generateLabel = (value: string | Record<string, any>[]) => {
+  if (typeof (value) === 'string') return value
+
+  const updatedValue = value.map(el => el.label).join(' ')
+
+  return updatedValue
+}
+
 const sortFn = (a: Record<string, any>, b: Record<string, any>) => {
   if (a.sell_price_min < b.sell_price_min) return -1
   if (a.sell_price_min > b.sell_price_min) return 1

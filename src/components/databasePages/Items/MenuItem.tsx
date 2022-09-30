@@ -7,9 +7,11 @@ import ListItemText from '@mui/material/ListItemText'
 import Paper from '@mui/material/Paper'
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown'
 import { subPagesItemsType } from '../../../types'
-import { generateCapitalizeLabel } from '../../../utils'
+import { generateCapitalizeLabel, generateLabel } from '../../../utils'
 import { BAG_PATH, ITEMS_PATH } from '../../../consts'
 import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getBags } from '../../../features'
 
 const FireNav = styled(List)<{ component?: React.ElementType }>({
   '& .MuiListItemButton-root': {
@@ -28,9 +30,10 @@ type PropsType = {
 }
 
 export const MenuItem: FC<PropsType> = ({ itemMenu }) => {
+  const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
 
-  // console.log('itemMenu: ', itemMenu)
+  const currentLabel = generateLabel(itemMenu.subPages)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -67,7 +70,8 @@ export const MenuItem: FC<PropsType> = ({ itemMenu }) => {
                         lineHeight: '20px',
                         mb: '0px',
                       }}
-                      secondary={generateCapitalizeLabel(itemMenu.subPages.join(', '))}
+                      // secondary={generateCapitalizeLabel(itemMenu.subPages.join(', '))}
+                      secondary={generateCapitalizeLabel(currentLabel)}
                       secondaryTypographyProps={{
                         noWrap: true,
                         fontSize: 12,
@@ -91,22 +95,31 @@ export const MenuItem: FC<PropsType> = ({ itemMenu }) => {
               {/* subItems */}
               {open && itemMenu.subPages &&
                 itemMenu.subPages.map((item) => {
-                  console.log('item: ', itemMenu)
-                  console.log('BAG_PATH: ', BAG_PATH)
+                  console.log('itemMenu: ', itemMenu)
+                  console.log('item: ', item)
                   const path = `${ITEMS_PATH}/${itemMenu.name}/${item}`
 
                   return (
+                  // <NavLink
+                  //   key={item.title}
+                  //   to={path}
+                  // >
                     <ListItemButton
-                      key={item}
+                      key={item.label}
                       sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                      onClick={() => {
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
+                        dispatch(getBags(item.url))
+                      }}
                     >
-                      <NavLink to={path}>
-                        <ListItemText
-                          primary={generateCapitalizeLabel(item)}
-                          primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
-                        />
-                      </NavLink>
+                      <ListItemText
+                        primary={generateCapitalizeLabel(item.label)}
+                        primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                      />
+
                     </ListItemButton>
+                  // </NavLink>
                   )
                 })}
             </Box>

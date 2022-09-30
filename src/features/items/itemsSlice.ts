@@ -10,10 +10,10 @@ const initialState = {
 }
 
 export const getBags = createAsyncThunk(
-  'posts/getItems',
+  'items/getItems',
   // first arg (payload) if don't need it => "_"
-  async () => {
-    const response = await instance.get(bagsURL)
+  async (url: string) => {
+    const response = await instance.get(url)
 
     const data = await response.data
 

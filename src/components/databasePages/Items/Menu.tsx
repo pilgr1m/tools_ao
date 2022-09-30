@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { uniqueId } from 'lodash'
 import { subPagesItems } from '../../../data'
-import { ItemMenu } from './ItemMenu'
+import { MenuItem } from './MenuItem'
 
 type PropsType = {
 
@@ -15,7 +15,7 @@ export const Menu: FC<PropsType> = () => {
   return (
     <>
       { subPagesItems.map(i => (
-        <ItemMenu key={uniqueId()} item={i} />
+        <MenuItem key={uniqueId()} itemMenu={i} />
       ))}
     </>
   )

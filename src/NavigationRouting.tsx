@@ -6,6 +6,7 @@ import { routes } from './data'
 
 export const NavigationRouting = () => (
   <BrowserRouter>
+    {/* layout - header - button(NavLink) */}
     <Layout>
       <Routes>
         {routes.map((route) => (

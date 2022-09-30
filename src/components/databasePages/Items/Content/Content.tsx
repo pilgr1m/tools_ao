@@ -1,21 +1,22 @@
 import React, { FC, useEffect, useState } from 'react'
-import { ItemCard } from '../components'
 import { uniqueId } from 'lodash'
 import { useDispatch, useSelector } from 'react-redux'
-import { getBags } from '../features'
+import { getBags } from '../../../../features'
+import { ItemCard } from './ItemCard'
+import { itemsURL } from '../../../../consts'
 
 type Props = {
   url?: string
 }
 
-export const ExamplePage: FC<Props> = ({ url }) => {
+export const Content: FC<Props> = ({ url }) => {
   const dispatch = useDispatch()
 
   const [data, setData] = useState<any | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
-  const urlTest = url || '/test_url'
+  const urlTest = url || itemsURL
 
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

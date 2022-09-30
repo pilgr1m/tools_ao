@@ -1,24 +1,28 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { ItemsLayout } from '../components'
-// import { getFarmableItems } from '../services'
-import { itemsType } from '../types'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { FC } from 'react'
+import { ContentBox, Menu } from '../components'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Unstable_Grid2'
 
 type Props = {
 
 }
 
 export const ItemsPage: FC<Props> = () => {
-  const dispatch = useDispatch()
-  const [data, setData] = useState<itemsType[] | []>([])
-
-  const { isLoading, isError, items } = useSelector((state:any) => {
-    console.log('state: ', state)
-
-    return state.items
-  })
+  const a = 1
 
   return (
-    <ItemsLayout />
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={3} columns={24}>
+        {/* menu */}
+        <Grid xs={3} sx={{ border: 'solid 1px green' }}>
+          <Menu />
+        </Grid>
+
+        {/* content */}
+        <Grid xs={20} sx={{ border: 'solid 1px red', ml: 2 }}>
+          <ContentBox />
+        </Grid>
+      </Grid>
+    </Box>
   )
 }

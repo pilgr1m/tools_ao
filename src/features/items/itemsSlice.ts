@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { instance } from '../../services'
-import { bagsURL } from '../../consts'
+import { bagURL } from '../../consts'
 import { sortedItemsByTierAndGrade } from '../../utils'
 
 const initialState = {

@@ -56,10 +56,7 @@ export const sortedItemsByTierAndGrade = (datas: any) => {
 
       const newItems = lowPriceByCity(splicedByFilteredItems)
 
-      console.log('newItems++++++++++: ', newItems)
-
       if (newItems.length === 0) {
-        console.log('IF______: ')
         // eslint-disable-next-line no-continue
         continue
       }

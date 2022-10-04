@@ -24,11 +24,10 @@ export const Content: FC<Props> = ({ url }) => {
     dispatch(getBags(currUrl))
   }, [])
 
-  const { isLoading, isError, items } = useSelector((state:any) => {
-    console.log('state: ', state)
+  const { isLoading, isError, items } = useSelector((state:any) =>
+  // console.log('state: ', state)
 
-    return state.items
-  })
+    state.items)
 
   useEffect(() => {
     setLoading(isLoading)

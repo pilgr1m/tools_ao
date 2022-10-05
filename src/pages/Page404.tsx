@@ -11,7 +11,7 @@ export const Page404: FC<Props> = () => {
   return (
     <div className="flex justify-center text-2xl text-red-600">
       <span> Sorry, page not found... </span>
-      <span> you can go to
+      <span> You can go to
         <Link to="/" className="text-2xl text-blue-600"> Home page</Link>
       </span>
     </div>

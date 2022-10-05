@@ -293,7 +293,7 @@ export const subPagesItems: subPagesItemsType[] = [
       { label: 'direbear', url: `${direbearURL}` },
       { label: 'direboar', url: `${direboarURL}` },
       { label: 'direwolf', url: `${direwolfURL}` },
-      { label: 'stag/moose', url: `${stagMooseURL}` },
+      { label: 'stag moose', url: `${stagMooseURL}` },
       { label: 'mule', url: `${muleURL}` },
       { label: 'ox', url: `${oxURL}` },
       { label: 'rare mount', url: `${rareMountURL}` },

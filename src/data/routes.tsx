@@ -28,7 +28,7 @@ import {
 // TODO add 404 page-rout
 export const routes = [
   { path: CALCULATION_PATH, label: 'calculation', component: <CalculationPage /> },
-  { path: ITEMS_PATH, label: 'items', component: <ItemsPage /> },
+  { path: `${ITEMS_PATH}/*`, label: 'items', component: <ItemsPage /> },
   { path: HOME_PATH, label: 'home', component: <HomePage /> },
   { path: '/', label: '', component: <HomePage /> },
   { path: '*', label: '', component: <Page404 /> },

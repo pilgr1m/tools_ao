@@ -7,7 +7,7 @@ import ListItemText from '@mui/material/ListItemText'
 import Paper from '@mui/material/Paper'
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown'
 import { subPagesItemsType } from '../../../types'
-import { generateCapitalizeLabel, generateLabel } from '../../../utils'
+import { generateCapitalizeLabel, generateLabel, generateStringForPath } from '../../../utils'
 import { ITEMS_PATH } from '../../../consts'
 import { NavLink } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
@@ -97,29 +97,32 @@ export const MenuItem: FC<PropsType> = ({ itemMenu }) => {
                 itemMenu.subPages.map((item) => {
                   console.log('itemMenu: ', itemMenu)
                   console.log('item: ', item)
-                  const path = `${ITEMS_PATH}/${itemMenu.name}/${item}`
+                  const subLabel = generateStringForPath(item.label)
+
+                  console.log('subLabel: ', subLabel)
+
+                  const path = `${ITEMS_PATH}/${itemMenu.name}/${subLabel}`
 
                   return (
-                  // <NavLink
-                  //   key={item.title}
-                  //   to={path}
-                  // >
-                    <ListItemButton
+                    <NavLink
                       key={item.label}
-                      sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
-                      onClick={() => {
+                      to={path}
+                    >
+                      <ListItemButton
+                        key={item.label}
+                        sx={{ py: 0, minHeight: 32, color: 'rgba(255,255,255,.8)' }}
+                        onClick={() => {
                         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                         // @ts-ignore
-                        dispatch(getBags(item.url))
-                      }}
-                    >
-                      <ListItemText
-                        primary={generateCapitalizeLabel(item.label)}
-                        primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
-                      />
-
-                    </ListItemButton>
-                  // </NavLink>
+                          dispatch(getBags(item.url))
+                        }}
+                      >
+                        <ListItemText
+                          primary={generateCapitalizeLabel(item.label)}
+                          primaryTypographyProps={{ fontSize: 14, fontWeight: 'medium' }}
+                        />
+                      </ListItemButton>
+                    </NavLink>
                   )
                 })}
             </Box>

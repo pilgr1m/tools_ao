@@ -69,3 +69,10 @@ export const sortedItemsByTierAndGrade = (datas: any) => {
 
   return cloneData
 }
+
+export const generateStringForPath = (str: string) => {
+  const arrayString = str.split(' ')
+  const moreTwoWorld = arrayString.join('_')
+
+  return arrayString.length > 1 ? moreTwoWorld : str
+}
